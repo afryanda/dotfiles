@@ -51,7 +51,7 @@ window#waybar.hidden {
   background-color: #f38ba8;
 }
 
-#memory,
+#activity,
 #custom-power,
 #battery,
 #backlight,
@@ -79,8 +79,16 @@ window#waybar.hidden {
   color: #1793d1;
 }
 
-#memory {
+#tray {
+  background-color: #f9e2af;
+}
+
+#activity {
   background-color: #fab387;
+}
+
+#memory {
+  margin-left: 6px;
 }
 
 #battery {
@@ -91,7 +99,7 @@ window#waybar.hidden {
 #battery.critical,
 #battery.urgent {
   background-color: #ff0000;
-  color: #FFFF00;
+  color: #ffff00;
 }
 
 #battery.charging {
@@ -120,7 +128,6 @@ window#waybar.hidden {
 #custom-power {
   background-color: #f2cdcd;
 }
-
 
 tooltip {
   border-radius: 8px;

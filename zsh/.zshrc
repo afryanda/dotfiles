@@ -14,6 +14,7 @@ compinit
 #
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # yazi wrapper
 function y() {
@@ -51,3 +52,5 @@ alias off='loginctl poweroff'
 alias nv=nvim
 alias bt=bluetoothctl
 alias todo='nvim TODO.md'
+
+alias art='php artisan'
