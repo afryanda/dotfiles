@@ -1,6 +1,5 @@
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=1000
+HISTFILE=~/.histfile HISTSIZE=1000
 SAVEHIST=1000
 setopt autocd extendedglob notify
 bindkey -e
@@ -14,7 +13,7 @@ compinit
 #
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
-eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(mise activate zsh)"
 
 # yazi wrapper
 function y() {
@@ -49,8 +48,12 @@ alias ua-update-all='export TMPFILE="$(mktemp)"; \
       && paru -Syyu --noconfirm'
 alias ff='fastfetch'
 alias off='loginctl poweroff'
-alias nv=nvim
+alias restart='loginctl reboot'
+alias vim=nvim
 alias bt=bluetoothctl
-alias todo='nvim TODO.md'
 
-alias art='php artisan'
+alias artisan='php artisan'
+alias shadcn='npx shadcn-vue@latest'
+alias localip="ip addr show usb0 | grep 'inet ' | awk '{print \$2}' | cut -d'/' -f1"
+export PATH="/home/afryanda/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/afryanda/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
