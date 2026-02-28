@@ -27,8 +27,8 @@ function y() {
 # ls
 alias ls='eza --icons'
 alias ll='ls -l'
-alias lla='ls -la'
-alias tree='ls --tree'
+alias la='ls -la'
+alias lt='ls --tree'
 
 # git
 alias glo='git log --oneline'
