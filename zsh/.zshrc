@@ -24,6 +24,9 @@ function y() {
 	rm -f -- "$tmp"
 }
 
+export PATH="/home/afryanda/.config/herd-lite/bin:$PATH"
+export PHP_INI_SCAN_DIR="/home/afryanda/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
 # ls
 alias ls='eza --icons'
 alias ll='ls -l'
@@ -55,5 +58,5 @@ alias bt=bluetoothctl
 alias artisan='php artisan'
 alias shadcn='npx shadcn-vue@latest'
 alias localip="ip addr show usb0 | grep 'inet ' | awk '{print \$2}' | cut -d'/' -f1"
-export PATH="/home/afryanda/.config/herd-lite/bin:$PATH"
-export PHP_INI_SCAN_DIR="/home/afryanda/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
+
+alias ff=fastfetch

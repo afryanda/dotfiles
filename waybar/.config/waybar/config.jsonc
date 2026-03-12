@@ -6,7 +6,7 @@
   // Choose the order of the modules
   "modules-left": ["custom/logo", "niri/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["tray", "wireplumber", "battery"],
+  "modules-right": ["tray", "network", "wireplumber", "battery"],
   "wlr/taskbar": {
     "format": "{icon}",
     "on-click": "activate",
@@ -101,11 +101,11 @@
     }
   },
   "network": {
-    "format-wifi": "{icon}",
+    "format-wifi": "{icon}  {essid}",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "format-ethernet": "󰀂",
+    "format-ethernet": "󰀂  {bandwidthDownBytes}",
     "format-alt": "󱛇",
-    "format-disconnected": "󰖪",
+    "format-disconnected": "",
     "tooltip-format-wifi": "{icon} {essid}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-ethernet": "󰀂  {ifname}\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
     "tooltip-format-disconnected": "Disconnected",
@@ -138,7 +138,7 @@
     "format-icons": {
       "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
-    "format-full": "Charged ",
+    "format-full": " Charged",
     "interval": 5,
     "states": {
       "warning": 20,
