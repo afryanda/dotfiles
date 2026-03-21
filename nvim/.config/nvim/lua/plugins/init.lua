@@ -1,7 +1,7 @@
 return {
 	{
 		"stevearc/conform.nvim",
-		event = 'BufWritePre', -- uncomment for format on save
+		event = "BufWritePre", -- uncomment for format on save
 		opts = require("configs.conform"),
 	},
 
@@ -16,15 +16,11 @@ return {
 	-- test new blink
 	-- { import = "nvchad.blink.lazyspec" },
 
-	-- {
-	-- 	"nvim-treesitter/nvim-treesitter",
-	-- 	opts = {
-	-- 		ensure_installed = {
-	-- 			"vim", "lua", "vimdoc",
-	--      "html", "css"
-	-- 		},
-	-- 	},
-	-- },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		opts = require("configs.treesitter"),
+	},
+
 	{
 		"nvim-tree/nvim-tree.lua",
 		opts = {
@@ -32,5 +28,17 @@ return {
 				side = "right", -- Set nvim-tree to the right side
 			},
 		},
+	},
+
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+		-- use opts = {} for passing setup options
+		-- this is equivalent to setup({}) function
+	},
+
+	{
+		"windwp/nvim-ts-autotag",
 	},
 }

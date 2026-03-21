@@ -4,7 +4,7 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["custom/logo", "niri/workspaces"],
+  "modules-left": ["custom/logo", "hyprland/workspaces"],
   "modules-center": ["clock"],
   "modules-right": ["tray", "network", "wireplumber", "battery"],
   "wlr/taskbar": {

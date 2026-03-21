@@ -3,7 +3,7 @@ general.import = [
 ]
 
 [window]
-padding = { x = 10, y = 10 }
+padding = { x = 20, y = 20 }
 
 [font]
 normal = { family = "CaskaydiaCove Nerd Font" }
