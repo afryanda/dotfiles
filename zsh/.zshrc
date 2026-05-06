@@ -11,6 +11,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 #
+
+source ~/.zshenv
+
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(mise activate zsh)"
@@ -22,6 +25,11 @@ function y() {
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
+}
+
+gacp() {
+  git add -p
+  gac
 }
 
 export PATH="/home/afryanda/.config/herd-lite/bin:$PATH"
@@ -40,6 +48,9 @@ alias gc='git commit'
 alias lg=lazygit
 alias gd='git diff'
 alias ga='git add'
+alias gac="gac"
+alias gaa="git add -A"
+alias gcm="git commit -m"
 
 alias ua-drop-caches='sudo paccache -rk3; paru -Sc --aur --noconfirm'
 alias ua-update-all='export TMPFILE="$(mktemp)"; \
