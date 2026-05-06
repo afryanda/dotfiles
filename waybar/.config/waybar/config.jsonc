@@ -4,9 +4,19 @@
   "position": "top", // Waybar position (top|bottom|left|right)
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
-  "modules-left": ["custom/logo", "hyprland/workspaces"],
-  "modules-center": ["clock"],
-  "modules-right": ["tray", "network", "wireplumber", "battery"],
+  "modules-left": [
+    "custom/logo",
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "wireplumber",
+    "battery"
+  ],
   "wlr/taskbar": {
     "format": "{icon}",
     "on-click": "activate",
@@ -14,6 +24,9 @@
     "icon-theme": "WhiteSur",
     "icon-size": 25,
     "tooltip-format": "{title}"
+  },
+  "hyprland/window": {
+    "max-length": 50
   },
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -29,7 +42,7 @@
       "7": "7",
       "8": "8",
       "9": "9",
-      "active": "󱓻",
+      //"active": "󱓻",
       "urgent": "󱓻"
     }
   },
@@ -60,7 +73,10 @@
   },
   "group/activity": {
     "orientation": "horizontal",
-    "modules": ["cpu", "memory"]
+    "modules": [
+      "cpu",
+      "memory"
+    ]
   },
   "cpu": {
     "interval": 5,
@@ -73,12 +89,13 @@
     "max-length": 10
   },
   "tray": {
-    "spacing": 10
+    "spacing": 10,
+    "icon-size": 14
   },
   "clock": {
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "format-alt": "  {:%a, %d %b %Y}",
-    "format": "󰥔  {:%H:%M}",
+    "format-alt": "{:%a, %d %b %Y} ",
+    "format": "{:%H:%M} ",
     "calendar": {
       "mode": "year",
       "mode-mon-col": 3,
@@ -102,7 +119,13 @@
   },
   "network": {
     "format-wifi": "{icon}  {essid}",
-    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "format-ethernet": "󰀂  {bandwidthDownBytes}",
     "format-alt": "󱛇",
     "format-disconnected": "",
@@ -122,13 +145,17 @@
     "format-muted": "󰝟",
     "format-icons": {
       "headphone": "",
-      "default": ["󰖀 ", "󰕾 ", " "]
+      "default": [
+        "󰖀 ",
+        "󰕾 ",
+        " "
+      ]
     },
     "on-click": "pamixer -t",
     "scroll-step": 1
   },
   "custom/logo": {
-    "format": "",
+    "format": " ",
     "tooltip": false,
     "on-click": "~/.config/rofi/launchers/misc/launcher.sh &"
   },
@@ -136,7 +163,18 @@
     "format": "{icon} {capacity}",
     "format-charging": " {capacity}",
     "format-icons": {
-      "default": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+      "default": [
+        "󰁺",
+        "󰁻",
+        "󰁼",
+        "󰁽",
+        "󰁾",
+        "󰁿",
+        "󰂀",
+        "󰂁",
+        "󰂂",
+        "󰁹"
+      ]
     },
     "format-full": " Charged",
     "interval": 5,

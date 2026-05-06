@@ -5,5 +5,5 @@ export EDITOR=nvim
 export TERMINAL=alacritty
 
 if [[ -z $DISPLAY ]] && [[ $(tty) == /dev/tty1 ]]; then
-  exec dbus-run-session -- niri
+  exec dbus-run-session -- start-hyprland
 fi
