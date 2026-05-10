@@ -6,8 +6,8 @@
   border: none;
   border-radius: 0;
   min-height: 20px;
-  font-family: JetBrainsMono Nerd Font;
-  font-size: 12px;
+  font-family: CaskaydiaCove Nerd Font;
+  font-size: 13px;
 }
 
 window#waybar {
@@ -63,6 +63,9 @@ window#waybar.hidden {
 #clock,
 #custom-logo,
 #window,
+#cpu,
+#memory,
+#bluetooth,
 #tray {
   border-radius: 4px;
   padding: 4px 6px;
@@ -84,7 +87,7 @@ tooltip label {
 }
 
 #clock {
-  font-weight: bold;
+  font-weight: normal;
 }
 
 #battery {

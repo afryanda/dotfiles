@@ -32,6 +32,60 @@ gacp() {
   gac
 }
 
+ask() {
+  local MODEL="llama-3.1-8b-instant"
+  local PROMPT="$*"
+
+  RESPONSE=$(jq -n \
+    --arg model "$MODEL" \
+    --arg prompt "$PROMPT" \
+    '{
+      model: $model,
+      messages: [{ role: "user", content: $prompt }]
+    }' |
+  curl -s https://api.groq.com/openai/v1/chat/completions \
+    -H "Authorization: Bearer '"$GROQ_API_KEY"'" \
+    -H "Content-Type: application/json" \
+    --max-time 10 \
+    -d @-)
+
+  echo "$RESPONSE" | jq -e '.choices[0].message.content' > /dev/null
+
+  if [ $? -ne 0 ]; then
+    echo "❌ API Error:"
+    echo "$RESPONSE" | jq
+    return 1
+  fi
+
+  echo "$RESPONSE" | jq -r '.choices[0].message.content'
+}
+
+askp() {
+  local MODEL="llama-3.1-8b-instant"
+  local CONTEXT
+  CONTEXT=$(cat)
+
+  jq -n \
+    --arg model "$MODEL" \
+    --arg prompt "$1" \
+    --arg context "$CONTEXT" \
+    '{
+      model: $model,
+      messages: [
+        {
+          role: "user",
+          content: $prompt + "\n\n" + $context
+        }
+      ]
+    }' |
+  curl -s https://api.groq.com/openai/v1/chat/completions \
+    -H "Authorization: Bearer '"$GROQ_API_KEY"'" \
+    -H "Content-Type: application/json" \
+    --max-time 12 \
+    -d @- |
+  jq -r '.choices[0].message.content'
+}
+
 export PATH="/home/afryanda/.config/herd-lite/bin:$PATH"
 export PHP_INI_SCAN_DIR="/home/afryanda/.config/herd-lite/bin:$PHP_INI_SCAN_DIR"
 
@@ -51,6 +105,7 @@ alias ga='git add'
 alias gac="gac"
 alias gaa="git add -A"
 alias gcm="git commit -m"
+alias gacm="gaa && gac"
 
 alias ua-drop-caches='sudo paccache -rk3; paru -Sc --aur --noconfirm'
 alias ua-update-all='export TMPFILE="$(mktemp)"; \

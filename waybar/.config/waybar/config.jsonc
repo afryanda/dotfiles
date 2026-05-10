@@ -14,6 +14,9 @@
   ],
   "modules-right": [
     "tray",
+    "cpu",
+    "memory",
+    "bluetooth",
     "wireplumber",
     "battery"
   ],
@@ -80,12 +83,12 @@
   },
   "cpu": {
     "interval": 5,
-    "format": " {usage}",
+    "format": " {usage}",
     "max-length": 10
   },
   "memory": {
     "interval": 5,
-    "format": " {}",
+    "format": " {}",
     "max-length": 10
   },
   "tray": {
@@ -146,9 +149,8 @@
     "format-icons": {
       "headphone": "",
       "default": [
-        "󰖀 ",
-        "󰕾 ",
-        " "
+        "󰖀",
+        "󰕾"
       ]
     },
     "on-click": "pamixer -t",
@@ -176,12 +178,22 @@
         "󰁹"
       ]
     },
-    "format-full": " Charged",
+    "format-full": " Fully Charged",
     "interval": 5,
     "states": {
       "warning": 20,
       "critical": 10
     },
     "tooltip": false
+  },
+  "bluetooth": {
+    "format": " {status}",
+    "format-connected": " {device_alias}",
+    "format-connected-battery": " {device_alias}",
+    // "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
   }
 }

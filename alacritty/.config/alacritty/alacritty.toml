@@ -6,8 +6,8 @@ general.import = [
 padding = { x = 20, y = 20 }
 
 [font]
-normal = { family = "JetBrainsMono Nerd Font" }
-size = 10
+normal = { family = "CaskaydiaCove Nerd Font" }
+size = 11
 offset = { x = 0, y = 0 }
 
 [env]
